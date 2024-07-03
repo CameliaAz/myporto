@@ -47,7 +47,7 @@ export const links = [
 export const experiencesData = [
   {
     title: "Graduated from MTSN 4 TULUNGAGUNG",
-    location: "Balikpapan, ID",
+    location: "Tulungagung, ID",
     description:
       "I graduated after 3 year of studying. ",
     icon: React.createElement(LuGraduationCap),
@@ -62,7 +62,7 @@ export const experiencesData = [
     date: "2020 - 2024",
   },
   {
-    title: "Freelance Developer",
+    title: "UI/UX Design",
     location: "Malang, ID",
     description:
       "I'm now a full-stack developer working as a freelancer. My stack includes React, Next.js, TypeScript, Tailwind, Prisma and MongoDB. I'm open to full-time opportunities.",

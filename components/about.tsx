@@ -45,7 +45,7 @@ export default function About() {
       id="about"
     >
       <SectionHeading>About me</SectionHeading>
-      <section dangerouslySetInnerHTML={{ __html: data.raw_aboutme }}>
+      <section dangerouslySetInnerHTML={{ __html: data.raw_aboutme }}>                                
 
       </section>
     </motion.section>
