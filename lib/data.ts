@@ -1,10 +1,10 @@
 import React from "react";
 import { CgWorkAlt } from "react-icons/cg";
-import { FaReact } from "react-icons/fa";
+import { IoBookOutline } from "react-icons/io5";
 import { LuGraduationCap } from "react-icons/lu";
 import corpcommentImg from "@/public/11.jpeg";
 import rmtdevImg from "@/public/22.jpeg";
-import wordanalyticsImg from "@/public/33.jpeg";
+import KasirImg from "@/public/Kasir.png";
 
 
 export const configFirebase = {
@@ -51,33 +51,41 @@ export const experiencesData = [
     description:
       "I graduated after 3 year of studying. ",
     icon: React.createElement(LuGraduationCap),
-    date: "2019",
+    date: "2018-2021",
   },
   {
-    title: "Student in SMKS TELKOM MALANG",
+    title: "Graduated from SMKS TELKOM MALANG",
     location: "Malang, ID",
     description:
-      "I studied in SMKS TELKOM MALANG for 2 years. I learned about programming, networking, and multimedia.",
-    icon: React.createElement(CgWorkAlt),
-    date: "2020 - 2024",
+      "I studied in SMKS TELKOM MALANG for 3 years. I learned about programming, networking, and multimedia.",
+    icon: React.createElement(LuGraduationCap),
+    date: "2021 - 2024",
+  },
+  {
+    title: "Student in Politeknik Negeri Malang",
+    location: "Malang, ID",
+    description:
+      "Teknik Informatika",
+    icon: React.createElement(IoBookOutline),
+    date: "2024-present",
   },
   {
     title: "UI/UX Design",
-    location: "Malang, ID",
+    location: "Surabaya, ID",
     description:
-      "I'm now a full-stack developer working as a freelancer. My stack includes React, Next.js, TypeScript, Tailwind, Prisma and MongoDB. I'm open to full-time opportunities.",
-    icon: React.createElement(FaReact),
-    date: "2024 - present",
+      "Internship at publish.co.id ",
+    icon: React.createElement(CgWorkAlt),
+    date: "2023-2024",
   },
 ] as const;
 
 export const projectsData = [
   {
-    title: "Selasar Wonosalam",
+    title: "Kasir App",
     description:
       "I worked as a full-stack developer on this startup project for 1 years. Users can give public feedback to companies.",
-    tags: ["Nuxt.js", "Vue.js", "mysql", "Tailwind",],
-    imageUrl: wordanalyticsImg ,
+    tags: ["Node.js","React.js", "mysql", "Tailwind",],
+    imageUrl: KasirImg ,
   },
   {
     title: "Laundry App",
@@ -86,13 +94,13 @@ export const projectsData = [
     tags: ["React", "TypeScript", "Next.js", "Tailwind", "Redux"],
     imageUrl: rmtdevImg,
   },
-  {
-    title: "Alacart POS",
-    description:
-      "POS system for a local restaurant. Admins can manage menu items, orders, and customers. Users can order food and pay online.",
-    tags: ["React", "Next.js", "SQL", "Tailwind", "Framer"],
-    imageUrl:  corpcommentImg,
-  },
+  // {
+  // //   title: "Alacart POS",
+  // //   description:
+  // //     "POS system for a local restaurant. Admins can manage menu items, orders, and customers. Users can order food and pay online.",
+  // //   tags: ["React", "Next.js", "SQL", "Tailwind", "Framer"],
+  // //   imageUrl:  corpcommentImg,
+  // // },
 ] as const;
 
 export const skillsData = [

@@ -1,13 +1,14 @@
 "use client";
 
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import SectionHeading from "./section-heading";
 import { motion } from "framer-motion";
 import { useSectionInView } from "@/lib/hooks";
 
-import { configFirebase } from "@/lib/data"
-import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
+import { configFirebase } from "@/lib/data";
+import { initializeApp } from "firebase/app";
+import { getFirestore, doc, getDoc } from "firebase/firestore/lite";
+import DOMPurify from "dompurify";
 
 export default function About() {
   const { ref } = useSectionInView("About");
@@ -15,25 +16,27 @@ export default function About() {
   const app = initializeApp(configFirebase);
   const db = getFirestore(app);
 
-  const [data, setDatas] = useState([]);
+  const [data, setDatas] = useState({}); // Inisialisasi state dengan objek kosong
 
   async function getaboutme() {
-    const aboutme = collection(db, 'aboutme');
-    const aboutmeSnapshot = await getDocs(aboutme);
-    let rt = aboutmeSnapshot.docs.map(doc => doc.data())
-    setDatas(rt[0]);
+    try {
+      const docRef = doc(db, "aboutme", "CK7DGnNGrnoJqXCQV6Hc");
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        console.log("Fetched data:", docSnap.data());
+        setDatas(docSnap.data());
+      } else {
+        console.error("Document not found.");
+      }
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
   }
 
   useEffect(() => {
-    // Logika atau aksi yang ingin Anda jalankan saat komponen dibuat
-    console.log('Komponen dibuat');
     getaboutme();
   }, []);
-
-  useEffect(() => {
-    // Logika yang ingin Anda jalankan setelah data diperbarui
-    console.log('Data telah diperbarui:', data);
-  }, [data]); // Menjalankan efek ini setiap kali data berubah
 
   return (
     <motion.section
@@ -45,9 +48,11 @@ export default function About() {
       id="about"
     >
       <SectionHeading>About me</SectionHeading>
-      <section dangerouslySetInnerHTML={{ __html: data.raw_aboutme }}>                                
-
-      </section>
+      <section
+        dangerouslySetInnerHTML={{
+          __html: DOMPurify.sanitize(data?.raw_aboutme || "Content not available"),
+        }}
+      ></section>
     </motion.section>
   );
 }
