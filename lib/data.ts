@@ -2,7 +2,6 @@ import React from "react";
 import { CgWorkAlt } from "react-icons/cg";
 import { IoBookOutline } from "react-icons/io5";
 import { LuGraduationCap } from "react-icons/lu";
-import corpcommentImg from "@/public/11.jpeg";
 import rmtdevImg from "@/public/22.jpeg";
 import KasirImg from "@/public/Kasir.png";
 
