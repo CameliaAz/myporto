@@ -37,10 +37,6 @@ export const links = [
     name: "Experience",
     hash: "#experience",
   },
-  {
-    name: "Contact",
-    hash: "#contact",
-  },
 ] as const;
 
 export const experiencesData = [
@@ -87,19 +83,12 @@ export const projectsData = [
     imageUrl: KasirImg ,
   },
   {
-    title: "Laundry App",
+    title: "Sistem Informasi Pergudangan Kosmetik",
     description:
-      "Laundry app for a local business. Users can schedule a pickup and delivery time for their laundry. Admins can manage orders and customers.",
-    tags: ["React", "TypeScript", "Next.js", "Tailwind", "Redux"],
+      "Saya mengembangkan sebuah Sistem Informasi Pergudangan Kosmetik berbasis web yang dirancang untuk memudahkan manajemen stok, pelacakan inventaris, dan pengelolaan produk kosmetik di gudang.",
+    tags: ["React.js", "TypeScript", "Laravel", "Tailwind", "mysql"],
     imageUrl: rmtdevImg,
   },
-  // {
-  // //   title: "Alacart POS",
-  // //   description:
-  // //     "POS system for a local restaurant. Admins can manage menu items, orders, and customers. Users can order food and pay online.",
-  // //   tags: ["React", "Next.js", "SQL", "Tailwind", "Framer"],
-  // //   imageUrl:  corpcommentImg,
-  // // },
 ] as const;
 
 export const skillsData = [
