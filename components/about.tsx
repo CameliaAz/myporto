@@ -17,6 +17,8 @@ export default function About() {
   const db = getFirestore(app);
 
   const [data, setDatas] = useState({}); // Inisialisasi state dengan objek kosong
+  const [sanitizedHtml, setSanitizedHtml] = useState("Loading...");
+
 
   async function getaboutme() {
     try {
@@ -38,6 +40,11 @@ export default function About() {
     getaboutme();
   }, []);
 
+   // Sanitasi hanya setelah data ada
+  useEffect(() => {
+    if (data?.raw_aboutme) setSanitizedHtml(DOMPurify.sanitize(data.raw_aboutme));
+  }, [data]);
+
   return (
     <motion.section
       ref={ref}
@@ -48,11 +55,7 @@ export default function About() {
       id="about"
     >
       <SectionHeading>About me</SectionHeading>
-      <section
-        dangerouslySetInnerHTML={{
-          __html: DOMPurify.sanitize(data?.raw_aboutme || "Content not available"),
-        }}
-      ></section>
+     <section dangerouslySetInnerHTML={{ __html: sanitizedHtml }} />
     </motion.section>
   );
 }
