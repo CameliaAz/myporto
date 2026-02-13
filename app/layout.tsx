@@ -10,7 +10,7 @@ import { Toaster } from "react-hot-toast";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "CameliaAzz | Personal Portfolio",
+  title: "CameliaAzz | Personal Portofolio",
   description: "Camelia Azzahra is a Junior developer with 1 years of experience.",
 };
 

@@ -4,6 +4,10 @@ import { IoBookOutline } from "react-icons/io5";
 import { LuGraduationCap } from "react-icons/lu";
 import rmtdevImg from "@/public/22.jpeg";
 import KasirImg from "@/public/Kasir.png";
+import login_bukuindukImg from "@/public/login_bukuinduk.png";
+import dashboard_bukuinduk from "@/public/dashboard_bukuinduk.png";
+import LoginBPMNImg from "@/public/LoginBPMN.png";
+import LoginWMSImg from "@/public/LoginWMS.png";
 
 
 export const configFirebase = {
@@ -40,37 +44,45 @@ export const links = [
 ] as const;
 
 export const experiencesData = [
-  {
-    title: "Graduated from MTSN 4 TULUNGAGUNG",
-    location: "Tulungagung, ID",
-    description:
-      "I graduated after 3 year of studying. ",
-    icon: React.createElement(LuGraduationCap),
-    date: "2018-2021",
-  },
+  // {
+  //   title: "Graduated from MTSN 4 TULUNGAGUNG",
+  //   location: "Tulungagung, ID",
+  //   description:
+  //     "I graduated after 3 year of studying. ",
+  //   icon: React.createElement(LuGraduationCap),
+  //   date: "2018-2021",
+  // },
   {
     title: "Graduated from SMKS TELKOM MALANG",
-    location: "Malang, ID",
+    location: "Malang",
     description:
       "I studied in SMKS TELKOM MALANG for 3 years. I learned about programming, networking, and multimedia.",
     icon: React.createElement(LuGraduationCap),
     date: "2021 - 2024",
   },
   {
-    title: "Student in Politeknik Negeri Malang",
-    location: "Malang, ID",
+    title: "Student in State Politechnic of Malang",
+    location: "Malang",
     description:
-      "Teknik Informatika",
+      "Informatics Engineering",
     icon: React.createElement(IoBookOutline),
     date: "2024-present",
   },
   {
     title: "UI/UX Design",
-    location: "Surabaya, ID",
+    location: "Surabaya",
     description:
       "Internship at publish.co.id ",
     icon: React.createElement(CgWorkAlt),
     date: "2023-2024",
+  },
+  {
+    title: "Business Process Development",
+    location: "Malang",
+    description:
+      "Internship at Sarastya Agility Innovations ",
+    icon: React.createElement(CgWorkAlt),
+    date: "2025-2025",
   },
 ] as const;
 
@@ -78,16 +90,30 @@ export const projectsData = [
   {
     title: "Kasir App",
     description:
-      "I worked as a full-stack developer on this startup project for 1 years. Users can give public feedback to companies.",
+      "Aplikasi Kasir berbasis web yang dirancang untuk memudahkan proses transaksi penjualan di toko atau restoran.",
     tags: ["Node.js","React.js", "mysql", "Tailwind",],
     imageUrl: KasirImg ,
   },
   {
     title: "Sistem Informasi Pergudangan Kosmetik",
     description:
-      "Saya mengembangkan sebuah Sistem Informasi Pergudangan Kosmetik berbasis web yang dirancang untuk memudahkan manajemen stok, pelacakan inventaris, dan pengelolaan produk kosmetik di gudang.",
-    tags: ["React.js", "TypeScript", "Laravel", "Tailwind", "mysql"],
-    imageUrl: rmtdevImg,
+      "Sistem Manajemen Pergudangan Kosmetik berbasis web yang dirancang untuk mengelola inventaris dan proses pergudangan produk kosmetik.",
+    tags: ["React.js", "Laravel", "mysql"],
+    imageUrl: LoginWMSImg ,
+  },
+  {
+    title: "Sistem Otomasi BPMN",
+    description:
+      "Sistem Otomasi BPMN berbasis web yang dirancang untuk mengotomatisasi proses bisnis menggunakan notasi BPMN (Business Process Model and Notation).",
+    tags: ["React.js", "JavaScript", "Laravel", "Tailwind", "mysql"],
+    imageUrl: LoginBPMNImg  ,
+  },
+  {
+    title: "Sistem Buku Induk Siswa",
+    description:
+      "Sistem Informasi Buku Induk Siswa berbasis web yang dirancang untuk memudahkan manajemen data siswa.",
+    tags: ["Vue", "JavaScript", "Laravel", "Tailwind", "MySQL"],
+    imageUrl: dashboard_bukuinduk,
   },
 ] as const;
 
@@ -100,15 +126,8 @@ export const skillsData = [
   "Node.js",
   "Git",
   "Tailwind",
-  "Prisma",
-  "TypeScript",
-  "MongoDB",
-  "Redux",
-  "GraphQL",
-  "Apollo",
-  "Express",
   "PostgreSQL",
-  "Python",
-  "Django",
-  "Framer Motion",
+  "Laravel",
+  "Vue",
+  "MySQL",
 ] as const;
