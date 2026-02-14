@@ -8,17 +8,23 @@ import { useSectionInView } from "@/lib/hooks";
 import { configFirebase } from "@/lib/data";
 import { initializeApp } from "firebase/app";
 import { getFirestore, doc, getDoc } from "firebase/firestore/lite";
-import DOMPurify from "dompurify";
+
+
+// 1. Definisikan Interface agar TypeScript tidak protes properti raw_aboutme
+interface AboutData {
+  raw_aboutme?: string;
+}
 
 export default function About() {
   const { ref } = useSectionInView("About");
 
+  // Inisialisasi Firebase
   const app = initializeApp(configFirebase);
   const db = getFirestore(app);
 
-  const [data, setDatas] = useState({}); // Inisialisasi state dengan objek kosong
+  // 2. Gunakan tipe AboutData pada useState
+  const [data, setDatas] = useState<AboutData>({});
   const [sanitizedHtml, setSanitizedHtml] = useState("Loading...");
-
 
   async function getaboutme() {
     try {
@@ -26,23 +32,33 @@ export default function About() {
       const docSnap = await getDoc(docRef);
 
       if (docSnap.exists()) {
-        console.log("Fetched data:", docSnap.data());
-        setDatas(docSnap.data());
+        // 3. Tegaskan tipe data yang diterima dari Firestore
+        setDatas(docSnap.data() as AboutData);
       } else {
         console.error("Document not found.");
+        setSanitizedHtml("No data found.");
       }
     } catch (error) {
       console.error("Error fetching data:", error);
+      setSanitizedHtml("Error loading content.");
     }
   }
 
+  // Effect 1: Ambil data dari Firebase saat komponen pertama kali muncul
   useEffect(() => {
     getaboutme();
   }, []);
 
-   // Sanitasi hanya setelah data ada
+  // Effect 2: Lakukan sanitasi HANYA jika data.raw_aboutme berubah
   useEffect(() => {
-    if (data?.raw_aboutme) setSanitizedHtml(DOMPurify.sanitize(data.raw_aboutme));
+    // Trik utama: Hanya import DOMPurify di sisi client
+    if (data?.raw_aboutme) {
+      import("dompurify").then((dompurify) => {
+        const DOMPurify = dompurify.default;
+        const clean = DOMPurify.sanitize(data.raw_aboutme!);
+        setSanitizedHtml(clean);
+      });
+    }
   }, [data]);
 
   return (

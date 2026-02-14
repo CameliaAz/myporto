@@ -41,17 +41,13 @@ export const links = [
     name: "Experience",
     hash: "#experience",
   },
+  {
+    name: "Contact",
+    hash: "#contact",
+  },
 ] as const;
 
 export const experiencesData = [
-  // {
-  //   title: "Graduated from MTSN 4 TULUNGAGUNG",
-  //   location: "Tulungagung, ID",
-  //   description:
-  //     "I graduated after 3 year of studying. ",
-  //   icon: React.createElement(LuGraduationCap),
-  //   date: "2018-2021",
-  // },
   {
     title: "Graduated from SMKS TELKOM MALANG",
     location: "Malang",

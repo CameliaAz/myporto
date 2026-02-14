@@ -16,14 +16,19 @@ export default function Contact() {
   const app = initializeApp(configFirebase);
   const db = getFirestore(app);
 
-  const [data, setDatas] = useState([]);
+
+  const [data, setDatas] = useState({ email: "" });
 
   async function getaboutme() {
     const aboutme = collection(db, 'aboutme');
     const aboutmeSnapshot = await getDocs(aboutme);
-    let rt = aboutmeSnapshot.docs.map(doc => doc.data())
-    setDatas(rt[0]);
+    const firstDoc = aboutmeSnapshot.docs[0]?.data() as { email: string } | undefined;
+
+    if (firstDoc?.email) {
+    setDatas({ email: firstDoc.email });
   }
+}
+  
 
   useEffect(() => {
     // Logika atau aksi yang ingin Anda jalankan saat komponen dibuat
